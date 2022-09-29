@@ -18,14 +18,14 @@ $(CONF):
 	cp -v $(DEFCONF) $(CONF)
 
 install: $(TARGET)
-	mkdir -p $(PREFIX)/bin
-	mkdir -p $(PREFIX)/share/man/man1
-	install -m755 $(TARGET) $(PREFIX)/bin/$(TARGET)
-	install -m644 $(MANPAGE) $(PREFIX)/share/man/man1/$(MANPAGE)
+	mkdir -p $(DESTDIR)$(PREFIX)/bin
+	mkdir -p $(DESTDIR)$(PREFIX)/share/man/man1
+	install -m755 $(TARGET) $(DESTDIR)$(PREFIX)/bin/$(TARGET)
+	install -m644 $(MANPAGE) $(DESTDIR)$(PREFIX)/share/man/man1/$(MANPAGE)
 
 uninstall:
-	rm $(PREFIX)/bin/$(TARGET)
-	rm $(PREFIX)/share/man/man1/$(MANPAGE)
+	rm $(DESTDIR)$(PREFIX)/bin/$(TARGET)
+	rm $(DESTDIR)$(PREFIX)/share/man/man1/$(MANPAGE)
 
 clean:
 	rm $(TARGET)
